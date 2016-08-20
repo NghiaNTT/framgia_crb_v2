@@ -18,7 +18,7 @@
         allDay: <%= @data[:all_day] %>,
         editable: true,
         name_place: '<%= @data[:name_place] %>',
-        place_id: '<%= @data[:place_id] %>',
+        place_id: '<%= @data[:place_id] %>'
       }
       $('#full-calendar').fullCalendar('renderEvent', eventData, true);
       $('#full-calendar').fullCalendar('unselect');
@@ -46,7 +46,7 @@
           data: $(form).serialize(),
           success: function(data) {
             $("#allow-overlap").val("false");
-            $('#dialog_overlap_confirm').dialog('close');           
+            $('#dialog_overlap_confirm').dialog('close');
           }
         });
       },

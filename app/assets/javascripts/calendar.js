@@ -267,7 +267,8 @@ $(document).on('page:change', function() {
         finish_date: (event.end !== null) ? event.end.format('MM-DD-YYYY H:mm A') : '',
         start_date_before_delete: start_date_before_delete,
         finish_date_before_delete: finish_date_before_delete,
-        persisted: event.persisted ? 1 : 0
+        persisted: event.persisted ? 1 : 0,
+        name_place: event.name_place
       },
       dataType: 'text',
       success: function(text){

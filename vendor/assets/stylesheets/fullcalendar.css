@@ -1049,24 +1049,24 @@ be a descendant of the grid when it is being dragged.
 
 .fc-time-grid-event.fc-short .fc-time,
 .fc-time-grid-event.fc-short .fc-title {
-	/* put the time and title on the same line */
+	/* put the time, place and title on the same line */
 	display: inline-block;
 	vertical-align: top;
 }
 
-.fc-time-grid-event.fc-short .fc-time span {
-	display: none; /* don't display the full time text... */
-}
-
 .fc-time-grid-event.fc-short .fc-time:before {
-	content: attr(data-start); /* ...instead, display only the start time */
+	content: attr(data);
 }
 
 .fc-time-grid-event.fc-short .fc-time:after {
-	content: "\000A0-\000A0"; /* seperate with a dash, wrapped in nbsp's */
+	content: "\000A0-\000A0";
 }
 
-.fc-time-grid-event.fc-short .fc-title {
+.fc-time-grid-event.fc-short .fc-title:before {
+	content: attr(data-title);
+}
+
+.fc-time-grid-event.fc-short .fc-time .fc-title{
 	font-size: .85em; /* make the title text the same size as the time */
 	padding: 0; /* undo padding from above */
 }
