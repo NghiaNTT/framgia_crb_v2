@@ -26,11 +26,13 @@ class CreateEvents < ActiveRecord::Migration
       t.string :google_event_id
       t.string :google_calendar_id
       t.string :name_place
+      t.integer :permission, default: 0
 
       t.timestamps null: false
     end
     add_index :events, :google_event_id
     add_index :events, :google_calendar_id
     add_index :events, :name_place
+    add_index :events, :permission
   end
 end

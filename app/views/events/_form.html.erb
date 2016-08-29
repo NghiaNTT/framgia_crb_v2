@@ -65,7 +65,7 @@
           <select class="select2-single js-states gcal-textinput form-control"
             id="id_label_single" name="event[name_place]"
             value="<%= @event.name_place %>">
-            <% unless @places.include? @event.name_place%>
+            <% unless @places.include? @event.name_place %>
               <option selected value="<%= @event.name_place %>">
                 <%= @event.name_place %>
               </option>
@@ -107,6 +107,18 @@
             </p>
           <% end %>
         </div>
+      </div>
+      <div class="form-group">
+        <p><%= t "events.permission.permission" %></p>
+        <input <%= "checked" if @event.default_permission? %> type="radio"
+          name="event[permission]" value="default_permission">
+          <%= t "events.permission.default" %>
+        <input <%= "checked" if @event.public_permission? %> type="radio"
+          name="event[permission]" value="public_permission">
+          <%= t "events.permission.public" %>
+        <input <%= "checked" if @event.private_permission? %> type="radio"
+          name="event[permission]" value="private_permission">
+          <%= t "events.permission.private" %>
       </div>
     </div>
 

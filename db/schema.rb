@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160715032322) do
     t.text     "message_content",    limit: 65535
     t.string   "google_event_id",    limit: 255
     t.string   "google_calendar_id", limit: 255
+    t.integer  "permission",         limit: 4,     default: 0
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.datetime "deleted_at"
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160715032322) do
   add_index "events", ["google_calendar_id"], name: "index_events_on_google_calendar_id", using: :btree
   add_index "events", ["google_event_id"], name: "index_events_on_google_event_id", using: :btree
   add_index "events", ["name_place"], name: "index_events_on_name_place", using: :btree
+  add_index "events", ["permission"], name: "index_events_on_permission", using: :btree
 
   create_table "notification_events", force: :cascade do |t|
     t.integer  "event_id",        limit: 4

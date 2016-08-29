@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
   ATTRIBUTES_PARAMS = [:title, :description, :status, :color, :all_day,
     :repeat_type, :repeat_every, :user_id, :calendar_id, :start_date,
     :finish_date, :start_repeat, :end_repeat, :exception_type, :exception_time,
-    :place_id, :name_place, attendees_attributes: [:id, :email, :_destroy, :user_id],
+    :place_id, :name_place, :permission, attendees_attributes: [:id, :email, :_destroy, :user_id],
     repeat_ons_attributes: [:id, :days_of_week_id, :_destroy],
     notification_events_attributes: [:id, :notification_id, :_destroy]]
 
@@ -40,6 +40,7 @@ class Event < ActiveRecord::Base
     :edit_all_follow, :edit_all]
 
   enum repeat_type: [:daily, :weekly, :monthly, :yearly]
+  enum permission: [:default_permission, :public_permission, :private_permission]
 
   accepts_nested_attributes_for :attendees, allow_destroy: true
   accepts_nested_attributes_for :notification_events, allow_destroy: true
